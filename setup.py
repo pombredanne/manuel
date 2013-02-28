@@ -16,11 +16,9 @@
 
 from setuptools import setup, find_packages
 
-long_description = (
-    open('README.rst').read()
-    + '\n\n'
-    + open('CHANGES.txt').read()
-    )
+with open('README.rst') as readme:
+    with open('CHANGES.txt') as changes:
+        long_description = readme.read() + '\n\n' + changes.read()
 
 tests_require = ['zope.testing']
 

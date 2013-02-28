@@ -22,7 +22,9 @@ def normalize_module_path(module_path):
 
 
 def absolute_import(name):
-    module_path = normalize_module_path(imp.find_module(name)[1])
+    fp, filename, (suffix, mode, type) = imp.find_module(name)
+    fp.close()
+    module_path = normalize_module_path(filename)
 
     # don't create a new module object if there's already one that we can reuse
     for module in list(sys.modules.values()):
