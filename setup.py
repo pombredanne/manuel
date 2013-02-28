@@ -17,7 +17,7 @@
 from setuptools import setup, find_packages
 
 with open('README.rst') as readme:
-    with open('CHANGES.txt') as changes:
+    with open('CHANGES.rst') as changes:
         long_description = readme.read() + '\n\n' + changes.read()
 
 tests_require = ['zope.testing']
@@ -25,9 +25,9 @@ tests_require = ['zope.testing']
 setup(
     name='manuel',
     version='0',
-    url = 'http://pypi.python.org/pypi/manuel',
+    url='http://pypi.python.org/pypi/manuel',
     packages=find_packages('src'),
-    package_dir={'':'src'},
+    package_dir={'': 'src'},
     zip_safe=False,
     author='Benji York',
     author_email='benji@benjiyork.com',
@@ -48,12 +48,12 @@ setup(
     extras_require={
         'tests': tests_require,
         },
-    tests_require = tests_require,
-    test_suite = 'manuel.tests.test_suite',
+    tests_require=tests_require,
+    test_suite='manuel.tests.test_suite',
     install_requires=[
         'setuptools',
         'six',
         ],
     include_package_data=True,
-    long_description = long_description,
+    long_description=long_description,
     )
