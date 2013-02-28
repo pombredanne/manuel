@@ -17,7 +17,15 @@ here = os.path.dirname(os.path.abspath(__file__))
 
 checker = zope.testing.renormalizing.RENormalizing([
     (re.compile(r"<unittest\.result\.TestResult"), '<unittest.TestResult'),
-    ])
+    # PyPy spells some error messages differently
+    (re.compile(r"NameError: global name '([a-zA-Z0-9_]+)' is not defined"),
+     r"NameError: name '\1' is not defined"),
+    # PyPy's default __repr__ is slightly different
+    (re.compile(r"<__builtin__\.(Table|TableError|NumbersTest|NumbersResult) object"),
+     r"<\1 object"),
+    (re.compile(r"<SRE_Match object"),
+     r"<_sre.SRE_Match object"),
+])
 
 
 def turtle_on_the_bottom_test():

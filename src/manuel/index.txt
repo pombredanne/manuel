@@ -232,7 +232,18 @@ checkers <http://docs.python.org/library/doctest.html#outputchecker-objects>`_
    for smoothing out differences between actual and expected output for things
    that are hard to control (like memory addresses and time).  See the
    `module's doctests <http://svn.zope.org/zope.testing/trunk/src/zope/testing/renormalizing.py?view=markup>`_
-   for more information on how it works.
+   for more information on how it works.  Here's a short example that
+   smoothes over the differences between CPython's and PyPy's NameError
+   messages:
+
+.. code-block:: python
+
+    import re
+    import zope.testing.renormalizing
+    checker = zope.testing.renormalizing.RENormalizing([
+        (re.compile(r"NameError: global name '([a-zA-Z0-9_]+)' is not defined"),
+         r"NameError: name '\1' is not defined"),
+    ])
 
 
 .. reset-globs
@@ -787,7 +798,7 @@ The ".. reset-globs" directive resets the globals in the test::
     >>> import manuel.isolation
     >>> import manuel.doctest
     >>> m = manuel.isolation.Manuel()
-    >>> m += manuel.doctest.Manuel()
+    >>> m += manuel.doctest.Manuel(checker=checker)
 
 We can see that after the globals have been reset, the second "print(x)" line
 raises an error.
