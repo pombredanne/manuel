@@ -9,6 +9,12 @@ CHANGES
   claim on the project.
 
 
+1.7.1 (2013-02-13)
+------------------
+
+- Fix brown-bag release.
+
+
 1.7.0 (2013-02-13)
 ------------------
 
