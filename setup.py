@@ -17,7 +17,7 @@
 from setuptools import setup, find_packages
 
 long_description = (
-    open('README.txt').read()
+    open('README.rst').read()
     + '\n\n'
     + open('CHANGES.txt').read()
     )
@@ -37,8 +37,9 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: Apache Software License',
         ],
-    license='ZPL',
+    license='Apache Software License, Version 2.0',
     extras_require={
         'tests': tests_require,
         },
