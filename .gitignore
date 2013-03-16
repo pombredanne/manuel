@@ -1,0 +1,7 @@
+.installed.cfg
+bin/
+develop-eggs/
+dist/
+docs/
+src/manuel.egg-info/
+parts/
