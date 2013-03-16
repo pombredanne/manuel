@@ -1,18 +1,19 @@
 ##############################################################################
 #
-# Copyright (c) 2004-2007 Zope Foundation and Contributors.
+# Copyright Benji York and Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# This software is subject to the provisions of the Apache License, Version
+# 2.0.
+#
 # THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
 # WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for manuel package
-"""
+"""Setup for manuel package."""
+
 from setuptools import setup, find_packages
 
 long_description = (
