@@ -5,3 +5,4 @@ dist/
 docs/
 src/manuel.egg-info/
 parts/
+*.pyc
