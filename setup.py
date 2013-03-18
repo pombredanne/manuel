@@ -1,22 +1,23 @@
 ##############################################################################
 #
-# Copyright (c) 2004-2007 Zope Foundation and Contributors.
+# Copyright Benji York and Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# This software is subject to the provisions of the Apache License, Version
+# 2.0.
+#
 # THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
 # WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Setup for manuel package
-"""
+"""Setup for manuel package."""
+
 from setuptools import setup, find_packages
 
 long_description = (
-    open('README.txt').read()
+    open('README.rst').read()
     + '\n\n'
     + open('CHANGES.txt').read()
     )
@@ -36,8 +37,9 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: Apache Software License',
         ],
-    license='ZPL',
+    license='Apache Software License, Version 2.0',
     extras_require={
         'tests': tests_require,
         },
