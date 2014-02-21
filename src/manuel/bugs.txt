@@ -49,6 +49,27 @@ one below would generate a syntax error during parsing.
     manuel.Document(source).parse_with(m)
 
 
+Code-block options with hyphens
+-------------------------------
+
+The code-block handler reST option parsing used to not allow for options with
+hyphens in their name, so blocks like this one would generate a syntax error:
+
+    .. code:: python
+        :number-lines:
+
+        class Foo(object):
+            pass
+
+.. -> source
+
+.. code-block:: python
+
+    import manuel.codeblock
+    m = manuel.codeblock.Manuel()
+    manuel.Document(source).parse_with(m)
+
+
 Empty documents
 ---------------
 
