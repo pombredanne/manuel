@@ -1,4 +1,6 @@
-from . import doctest
+from __future__ import absolute_import
+
+import doctest
 import manuel
 import manuel.capture
 import manuel.codeblock
@@ -10,8 +12,6 @@ import os.path
 import re
 import unittest
 import zope.testing.renormalizing
-
-doctest = manuel.absolute_import('doctest')
 
 here = os.path.dirname(os.path.abspath(__file__))
 
@@ -43,7 +43,6 @@ def turtle_on_the_bottom_test():
     <BLANKLINE>
 
     """
-
 
 def test_suite():
     tests = ['index.txt', 'table-example.txt', 'README.txt', 'bugs.txt',

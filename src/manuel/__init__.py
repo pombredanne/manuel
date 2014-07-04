@@ -1,6 +1,4 @@
-import imp
 import re
-import sys
 
 # constants for use with "timing" decorator
 EARLY = 'early'
@@ -13,25 +11,6 @@ def timing(timing):
         return func
 
     return decorate
-
-
-def normalize_module_path(module_path):
-    if module_path.endswith('.pyc'):
-        module_path = module_path[:-1]
-    return module_path
-
-
-def absolute_import(name):
-    module_path = normalize_module_path(imp.find_module(name)[1])
-
-    # don't create a new module object if there's already one that we can reuse
-    for module in list(sys.modules.values()):
-        if module is None or not hasattr(module, '__file__'):
-            continue
-        if module_path == normalize_module_path(module.__file__):
-            return module
-
-    return imp.load_module(name, *imp.find_module(name))
 
 
 def newlineify(s):

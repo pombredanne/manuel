@@ -1,12 +1,12 @@
-from . import doctest
+from __future__ import absolute_import
+
+import doctest as real_doctest
 import inspect
 import itertools
 import manuel
 import os.path
 import sys
 import unittest
-
-real_doctest = manuel.absolute_import('doctest')
 
 __all__ = ['TestSuite']
 
