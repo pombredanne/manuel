@@ -1,12 +1,14 @@
 CHANGES
 =======
 
-1.7.3 (unreleased)
+1.8.0 (2014-07-15)
 ------------------
 
 - Fixed ResourceWarnings under Python 3.
-- Added support for PyPy.
-
+- Added support for PyPy and Python 3.4.
+- Drop official support for Python 3.1 and 3.2.
+- Fix odd ImportError problems when used with tox and coverage.
+- Fix parsing of reST codeblock options with hyphens.
 
 1.7.2 (2013-03-16)
 ------------------
