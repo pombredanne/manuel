@@ -1,12 +1,27 @@
 CHANGES
 =======
 
+1.8.0 (2014-07-15)
+------------------
+
+- Fixed ResourceWarnings under Python 3.
+- Added support for PyPy and Python 3.4.
+- Drop official support for Python 3.1 and 3.2.
+- Fix odd ImportError problems when used with tox and coverage.
+- Fix parsing of reST codeblock options with hyphens.
+
 1.7.2 (2013-03-16)
 ------------------
 
 - Fixed release issues.
 - Updated copyright and license to reflect recent Zope Foundation release of
   claim on the project.
+
+
+1.7.1 (2013-02-13)
+------------------
+
+- Fix brown-bag release.
 
 
 1.7.0 (2013-02-13)

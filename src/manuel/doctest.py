@@ -1,8 +1,9 @@
+from __future__ import absolute_import
+
+import doctest
 import six
 import manuel
 import os.path
-
-doctest = manuel.absolute_import('doctest')
 
 DocTestRunner = doctest.DocTestRunner
 DebugRunner = doctest.DebugRunner

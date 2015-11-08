@@ -1,12 +1,12 @@
-from . import doctest
+from __future__ import absolute_import
+
+import doctest as real_doctest
 import inspect
 import itertools
 import manuel
 import os.path
 import sys
 import unittest
-
-real_doctest = manuel.absolute_import('doctest')
 
 __all__ = ['TestSuite']
 
@@ -175,8 +175,9 @@ def TestSuite(m, *paths, **kws):
             abs_path = \
                 os.path.abspath(_module_relative_path(calling_module, path))
 
-        document = manuel.Document(
-            open(abs_path, 'U').read(), location=abs_path)
+        with open(abs_path, 'U') as fp:
+            document = manuel.Document(
+                fp.read(), location=abs_path)
         document.parse_with(m)
 
         for regions in group_regions_by_test_case(document):

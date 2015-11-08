@@ -1,4 +1,6 @@
-from . import doctest
+from __future__ import absolute_import
+
+import doctest
 import manuel
 import manuel.capture
 import manuel.codeblock
@@ -11,13 +13,19 @@ import re
 import unittest
 import zope.testing.renormalizing
 
-doctest = manuel.absolute_import('doctest')
-
 here = os.path.dirname(os.path.abspath(__file__))
 
 checker = zope.testing.renormalizing.RENormalizing([
     (re.compile(r"<unittest\.result\.TestResult"), '<unittest.TestResult'),
-    ])
+    # PyPy spells some error messages differently
+    (re.compile(r"NameError: global name '([a-zA-Z0-9_]+)' is not defined"),
+     r"NameError: name '\1' is not defined"),
+    # PyPy's default __repr__ is slightly different
+    (re.compile(r"<__builtin__\.(Table|TableError|NumbersTest|NumbersResult) object"),
+     r"<\1 object"),
+    (re.compile(r"<SRE_Match object"),
+     r"<_sre.SRE_Match object"),
+])
 
 
 def turtle_on_the_bottom_test():
@@ -43,7 +51,6 @@ def turtle_on_the_bottom_test():
     <BLANKLINE>
 
     """
-
 
 def test_suite():
     tests = ['index.txt', 'table-example.txt', 'README.txt', 'bugs.txt',
